@@ -24,7 +24,7 @@
   "dependencies": {
     "node": "^19.8.1"
   },
-  "browser":{
+  "browser": {
     "child_process": false
-  }  
+  }
 }
