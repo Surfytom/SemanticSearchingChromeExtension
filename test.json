@@ -1,7 +1,0 @@
-{
-    "name": "application",
-    "description": "My Application",
-    "path": "test.py",
-    "type": "stdio",
-    "allowed_origins": ["chrome-extension://albncgfdlkimjbbplmjnnjhnpflhohdi/"]
-}

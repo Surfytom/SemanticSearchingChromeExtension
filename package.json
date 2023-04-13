@@ -22,7 +22,9 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
-    "node": "^19.8.1"
+    "node": "^19.8.1",
+    "os-browserify": "^0.3.0",
+    "weaviate-ts-client": "^1.0.0"
   },
   "browser": {
     "child_process": false
