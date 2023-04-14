@@ -1,92 +1,76 @@
-/* normalize css starts here */
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-/* normalize css ends here */
-
-html {
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
-    sans-serif;
-  color: #222;
-}
-
 body {
-  width: 350px;
-  height: 300px;
+  margin: 15px;
+  background: #57c5b6;
 }
 
-.app {
-  height: 100%;
+.popup {
+  width: 325px;
+  height: 500px;
+  background-color: #1a5f7a;
+  box-shadow: rgba(0, 0, 0, 0.6) 0px 5px 15px;
+  border-radius: 10px;
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-box {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  text-align: center;
-  padding: 20px;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #002B5B;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
 .title {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+  color: #57c5b6;
 }
 
-.subtitle {
-  font-size: 12px;
-}
-
-code {
-  font-size: 12px;
-  font-family: inherit;
-  background-color: rgba(254, 237, 185, 0.3);
-  padding: 2px 4px;
-  border-radius: 2px;
-}
-
-.counter-label {
-  font-size: 12px;
-  margin-bottom: 5px;
-}
-
-.counter {
-  font-size: 36px;
-  font-weight: 700;
+.description {
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #159895;
 }
 
 .button-container {
-  margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  margin-top: auto;
 }
 
 .button {
-  border: 0;
-  display: inline-block;
   padding: 10px 20px;
-  margin-right: 4px;
-  margin-left: 4px;
-  background-color: bisque;
-  font-size: 16px;
+  background-color: #002B5B;
+  color: #57c5b6;
+  border: none;
   cursor: pointer;
-  border-radius: 4px;
-  text-decoration: none;
-  transition: transform 0.2s ease;
-  user-select: none;
+  width: 50%;
+}
+
+#optionsButton{
+  border-radius: 0px 0px 0px 5px;
+}
+
+#helpButton{
+  border-radius: 0px 0px 5px 0px;
+}
+
+.button:hover {
+  background-color: #159895;
 }
 
 .button:focus {
   outline: none;
-}
-
-.button:hover {
-  transform: scale(1.1);
-}
-
-.divider {
-  margin: 30px auto 25px;
-  width: 50px;
-  border: 0.5px dashed #000;
-  opacity: 0.1;
 }
