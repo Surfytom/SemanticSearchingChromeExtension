@@ -1,11 +1,17 @@
 'use strict';
 
-var socket = io('http://localhost:3690');
+let connection;
 
 chrome.runtime.onInstalled.addListener(() => {
   console.log("background.js installed!")
 
-  console.log(client)
+  connection = new WebSocket("ws://localhost:8080/")
+
+  //connection.send("hello")
+
+  connection.addEventListener("message", (event) => {
+    console.log(event.data)
+  })
 
   chrome.contextMenus.create({
       id: "test",
@@ -15,10 +21,15 @@ chrome.runtime.onInstalled.addListener(() => {
   })
 });
 
+
+
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+    console.log("Received: ", request);
+});
+
 chrome.contextMenus.onClicked.addListener(function(info, tab){
 
   console.log("info: ")
   console.log(info.selectionText)
-
-  console.log("client:", client.info)
+  connection.send("hello")
 });
