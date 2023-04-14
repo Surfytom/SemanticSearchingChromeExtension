@@ -31,5 +31,5 @@ chrome.contextMenus.onClicked.addListener(function(info, tab){
 
   console.log("info: ")
   console.log(info.selectionText)
-  connection.send("hello")
+  connection.send(JSON.stringify({body: info.selectionText}))
 });
