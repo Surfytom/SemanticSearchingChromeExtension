@@ -19,7 +19,7 @@
   "permissions": [
     "storage",
     "contextMenus",
-    "nativeMessaging"
+    "bookmarks"
   ],
   "optional_host_permissions": ["https://*/*"]
 }
