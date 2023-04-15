@@ -3,6 +3,10 @@ body {
   background: #57c5b6;
 }
 
+div, button, p {
+  caret-color: transparent;
+}
+
 .popup {
   width: 325px;
   height: 500px;
@@ -69,8 +73,10 @@ body {
 
 .button:hover {
   background-color: #159895;
+  color: #002B5B;
 }
 
 .button:focus {
   outline: none;
+  text-decoration: underline;
 }
