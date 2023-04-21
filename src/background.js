@@ -1,15 +1,16 @@
 'use strict';
 
-var connection;
-var bookmarkParent;
-var workingFolderId;
-var sessionID;
+let connection;
+let bookmarkParent;
+let workingFolderId;
+let sessionID;
+let workingFolderName;
 
-chrome.runtime.onInstalled.addListener(() => {
+chrome.runtime.onInstalled.addListener(async () => {
   console.log("background.js installed!")
 
   // Connect to backend server to fetch db data
-  connection = new WebSocket("ws://localhost:7070/")
+  connection = new WebSocket("ws://localhost:3000/")
 
   // Add event listener to run when messages are received from the server
   connection.addEventListener("message", (event) => {
@@ -41,6 +42,15 @@ chrome.runtime.onInstalled.addListener(() => {
         )
       }
     )
+  })
+
+  let test = "hola"
+  chrome.storage.sync.set({ test }).then(() => {
+    console.log("Value is set to " + test);
+  });
+
+  chrome.storage.sync.get(["test"]).then((e) => {
+    console.log("test outpout: " + e.test)
   })
 
   // Check a folder has been created for the paper bookmarks to store to if not create it
@@ -81,8 +91,26 @@ chrome.runtime.onInstalled.addListener(() => {
 
 
 
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-    console.log("Received: ", request);
+chrome.runtime.onMessage.addListener(async function(request, sender, sendResponse) {
+  console.log("Received: ", request);
+
+  switch (request.head){
+    case "amount":
+      console.log("amount to change to: " + request.value)
+      
+      sendResponse({result: true})
+      break;
+    case "folderRename":
+      console.log("rename folder to: " + request.value)
+
+      chrome.bookmarks.update(workingFolderId, {title: value})
+
+      sendResponse({result: true})
+      break;
+    default:
+      console.log("fell into default")
+      sendResponse({result: false})
+  }
 });
 
 chrome.contextMenus.onClicked.addListener(function(info, tab){

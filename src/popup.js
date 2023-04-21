@@ -2,9 +2,39 @@
 
 import './popup.css';
 
-const button = document.getElementById("optionsButton");
+const hbutton = document.getElementById('helpButton');
 
-button.addEventListener('click', (event) => {
-    console.log("clicked options button")
-    console.log(event)
+const numberInput = document.getElementById('number-input');
+const textInput = document.getElementById('text-input');
+
+hbutton.addEventListener('click', (event) => {
+  console.log('clicked help button');
+  console.log(event);
+
+  window.open("help.html")
+});
+
+numberInput.addEventListener('change', async (event) => {
+    console.log('input for return paper amount: ', event.target.value);
+
+    const response = await chrome.runtime.sendMessage({head: "amount", value: event.target.value});
+    // do something with response here, not outside the function
+    console.log(response);
+    if(response.result){
+        console.log("success")
+    } else {
+        console.log("Error")
+    }
+});
+textInput.addEventListener('change', async (event) => {
+  console.log('input for folder rename: ', event.target.value);
+
+  const response = await chrome.runtime.sendMessage({head: "folderRename", value: event.target.value});
+  // do something with response here, not outside the function
+  console.log(response);
+  if(response.result){
+      console.log("success")
+  } else {
+      console.log("Error")
+  }
 });

@@ -3,13 +3,16 @@ body {
   background: #57c5b6;
 }
 
-div, button, p {
+h1,
+button,
+p,
+form {
   caret-color: transparent;
 }
 
 .popup {
   width: 325px;
-  height: 500px;
+  height: 250px;
   background-color: #1a5f7a;
   box-shadow: rgba(0, 0, 0, 0.6) 0px 5px 15px;
   border-radius: 10px;
@@ -27,7 +30,7 @@ div, button, p {
   width: 100%;
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: #002B5B;
+  background-color: #002b5b;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
@@ -51,32 +54,61 @@ div, button, p {
   flex-direction: row;
   justify-content: center;
   width: 100%;
-  margin-top: auto;
 }
 
 .button {
   padding: 10px 20px;
-  background-color: #002B5B;
+  background-color: #002b5b;
   color: #57c5b6;
   border: none;
   cursor: pointer;
-  width: 50%;
+  width: 100%;
 }
 
-#optionsButton{
-  border-radius: 0px 0px 0px 5px;
-}
-
-#helpButton{
-  border-radius: 0px 0px 5px 0px;
+#helpButton {
+  border-radius: 0px 0px 5px 5px;
 }
 
 .button:hover {
   background-color: #159895;
-  color: #002B5B;
+  color: #002b5b;
 }
 
 .button:focus {
   outline: none;
   text-decoration: underline;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: fit-content;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  width: 250px;
+}
+
+input {
+  padding: 8px 10px;
+  width: 90%;
+  border: none;
+  background-color: #002b5b;
+  color: white;
+  border-radius: 5px;
+}
+
+input:focus-visible {
+  outline: none;
+  caret-color: white;
+}
+
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
 }

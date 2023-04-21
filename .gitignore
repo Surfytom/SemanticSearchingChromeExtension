@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/server/node_modules
 
 # production
 /build
@@ -13,3 +14,6 @@ npm-debug.log*
 
 # packed files
 /release
+
+build.pem
+build.crx

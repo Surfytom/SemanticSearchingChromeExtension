@@ -1,0 +1,43 @@
+/* Set a font family for the entire page */
+body {
+    font-family: Arial, sans-serif;
+    
+}
+
+/* Center the container div */
+.container {
+  display: flex;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+  flex-direction: column;
+}
+
+/* Style the step titles */
+.step h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Style the step descriptions */
+.step p {
+  font-size: 18px;
+  line-height: 1.5;
+  margin: 20px;
+}
+
+/* Style the step images */
+.step img {
+  max-width: 100%;
+  margin-bottom: 20px;
+  border: 3px solid black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

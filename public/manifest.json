@@ -21,5 +21,6 @@
     "contextMenus",
     "bookmarks"
   ],
+  "key": "mafpimkadklkinbchchcabfancbbjdnf",
   "optional_host_permissions": ["https://*/*"]
 }

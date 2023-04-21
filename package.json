@@ -8,7 +8,8 @@
     "build": "webpack --mode=production --config config/webpack.config.js",
     "pack": "node pack.js",
     "repack": "npm run build && npm run pack",
-    "format": "prettier --write --ignore-unknown \"{config,public,src}/**/*.{html,css,js,ts,json}\""
+    "format": "prettier --write --ignore-unknown \"{config,public,src}/**/*.{html,css,js,ts,json}\"",
+    "test": "jest testing/test.js"
   },
   "devDependencies": {
     "adm-zip": "^0.5.10",
@@ -22,8 +23,10 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
+    "jest": "^29.5.0",
     "node": "^19.8.1",
     "os-browserify": "^0.3.0",
+    "puppeteer": "^19.9.1",
     "socket-io": "^1.0.0",
     "socket.io": "^4.6.1",
     "socket.io-client": "^4.6.1",
