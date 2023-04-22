@@ -22,6 +22,7 @@ numberInput.addEventListener('change', async (event) => {
     console.log(response);
     if(response.result){
         console.log("success")
+        numberInput.placeholder = "successfully changed amount";
     } else {
         console.log("Error")
     }
@@ -34,6 +35,7 @@ textInput.addEventListener('change', async (event) => {
   console.log(response);
   if(response.result){
       console.log("success")
+      textInput.placeholder = "successfully changed folder name";
   } else {
       console.log("Error")
   }

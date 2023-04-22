@@ -19,10 +19,10 @@ wss.on('connection', (ws) => {
         var data = JSON.parse(message);
         console.log(data);
 
-        responseBody = await queryDatabase(data.body, data.amount)
-        response = JSON.stringify({response: responseBody})
+        responseBody = await queryDatabase(data.body, data.amount);
+        response = JSON.stringify({response: responseBody});
 
-        ws.send(response)
+        ws.send(response);
     });
 });
 
@@ -36,30 +36,30 @@ async function queryDatabase(queryBody, limitAmount) {
         "concepts": [queryBody]
     }
 
-    result = await databaseClient.graphql.get().withClassName("Paper").withFields("pdfId title").withNearText(nearTextArgs).withLimit(limitAmount).do()
+    result = await databaseClient.graphql.get().withClassName("Paper").withFields("pdfId title").withNearText(nearTextArgs).withLimit(limitAmount).do();
 
-    result = result.data.Get.Paper
+    result = result.data.Get.Paper;
 
     for (let i = 0; i < result.length; i++) {
-        result[i].pdfId = await convertPdfLink(result[i].pdfId)
+        result[i].pdfId = await convertPdfLink(result[i].pdfId);
     }
 
     for (let i = 0; i < result.length; i++) {
-        console.log(result[i])
+        console.log(result[i]);
     }
 
-    return result
+    return result;
 }
 
 async function convertPdfLink(pdfId){
 
-    resultPdfLink = pdfId
+    resultPdfLink = pdfId;
 
     if (!pdfId.includes("/")) {
-        resultPdfLink = pdfId.replace("-", ".")
+        resultPdfLink = pdfId.replace("-", ".");
     }
 
-    resultPdfLink = "https://arxiv.org/pdf/" + resultPdfLink + ".pdf"
+    resultPdfLink = "https://arxiv.org/pdf/" + resultPdfLink + ".pdf";
 
-    return resultPdfLink
+    return resultPdfLink;
 }
