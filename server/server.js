@@ -41,7 +41,8 @@ async function queryDatabase(queryBody, limitAmount) {
     }
 
     // Calls graphql query returning only pdfId and title fields
-    result = await databaseClient.graphql.get().withClassName("Paper").withFields("pdfId title").withNearText(nearTextArgs).withLimit(limitAmount).do();
+    result = await databaseClient.graphql.get().withClassName("Paper")
+    .withFields("pdfId title").withNearText(nearTextArgs).withLimit(limitAmount).do();
 
     // removes unnecessary object layers
     result = result.data.Get.Paper;
