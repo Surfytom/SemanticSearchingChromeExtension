@@ -10,21 +10,28 @@ let browser = null;
 
 
 describe('Extension UI Testing', function() {
-    beforeAll(async function() {
-      await boot();
-    }, 20000);
-  
-    it('Options Button Click', async function() {
-        await extensionPage.click("#optionsButton")
-    }),
-    it('Help Button Click', async function() {
-        await extensionPage.click("#helpButton")
-    })
-  
-    /*afterAll(async function() {
-      await browser.close();
-    });*/
+  beforeAll(async function() {
+    await boot();
+  }, 20000);
+
+  it('Help Button Click And help.html Loads', async function() {
+    await extensionPage.click("#helpButton")
+
+    await new Promise((r) => setTimeout(r, 100));
+
+    const pages = await browser.pages();
+
+    const helpHtml = pages[1]
+
+    expect(helpHtml.url()).toContain('help.html');
+
+    helpHtml.close()
+  })
+
+  afterAll(async function() {
+    await browser.close();
   });
+});
 
 async function boot() {
     browser = await puppeteer.launch({

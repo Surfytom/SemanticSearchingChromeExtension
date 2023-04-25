@@ -1,6 +1,8 @@
 'use strict';
 
+// Global variables
 let connection;
+
 let bookmarkParent;
 let workingFolderId;
 let sessionID = 0;
@@ -115,10 +117,13 @@ chrome.runtime.onInstalled.addListener(() => {
 
 
 chrome.runtime.onMessage.addListener( (request, sender, sendResponse) => {
+  // Recieves messages from popup.js decodes command and execute with given arguments
+
   console.log("Received: ", request);
 
   switch (request.head){
     case "amount":
+      // If command is amount make sure the value is between 0 - 10
 
       if(request.value > 10){
         request.value = 10
@@ -127,6 +132,7 @@ chrome.runtime.onMessage.addListener( (request, sender, sendResponse) => {
         request.value = 1
       }
       
+      // Set the parsed config value to storage and if succesful assign global variable to it and return success
       chrome.storage.sync.set({amount: request.value}).then(() => {
         console.log("New amount " + request.value + " saved to storage")
         amountOfPapers = request.value
@@ -135,6 +141,7 @@ chrome.runtime.onMessage.addListener( (request, sender, sendResponse) => {
 
       break;
     case "folderRename":
+      // If command is folder rename update the folder to new title with argument parsed then save that new title in chrome storage returning success
 
       chrome.bookmarks.update(workingFolderId, {title: request.value}).then(() => {
         workingFolderName = request.value
@@ -148,16 +155,18 @@ chrome.runtime.onMessage.addListener( (request, sender, sendResponse) => {
 
       break;
     default:
-      console.log("fell into default")
+      // Fell into unknown command return false
+      console.log("fell into default, Unknown command")
       sendResponse({result: false})
   }
 
+  // This return true statement tell the listener on popup.js to keep listening for the sendResponse function
   return true;
 });
 
 chrome.contextMenus.onClicked.addListener(function(info, tab){
+  // When the custom context menu button is pressed take selected text and send to server with amount of papers variable
 
-  console.log("info: ")
-  console.log(info.selectionText)
+  console.log("Selected Text: ", info.selectionText)
   connection.send(JSON.stringify({body: info.selectionText, amount: amountOfPapers}))
 });
