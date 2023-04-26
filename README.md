@@ -56,7 +56,7 @@ Before attempting this setup make sure you these dependencies installed on your 
 
 **Setup**
 
- 1. Install a database from Google drive using this link (1GB 100,000 object version | 3GB 700,000 object version) 
+ 1. Install a database from Google drive using [this link](https://drive.google.com/drive/folders/1Efu7RF4g2tpcanlMOzjkRB-EdVX8WUU0?usp=sharing) (1GB 100,000 object version | 3GB 700,000 object version) 
  2. Open [this link](https://open.docker.com/extensions/marketplace?extensionId=docker/volumes-backup-extension) and install the extension that appears on your desktop docker app (skip to step 5 if this link works)
  3. If this link does not work open the docker desktop application and click **"Add Extension"** on the left menu
  4. You should see a search bar. Type **"volume"** into the search bar and install the extension called **"Volumes Backup & Share"**. It should have an icon with a blue background with a white drive
@@ -92,8 +92,9 @@ Before attempting this setup make sure you these dependencies installed on your 
 
 **For .ipynb Files**
 
- 1. Open the file and click **"Select Kernel"** in the top right
- 2. Select the conda environment you created earlier
- 3. You should now be able to run the blocks of code
+ 1. Install the Jupyter notebook extension using this extension code `ms-toolsai.jupyter`
+ 2. Once installed open a file and click **"Select Kernel"** in the top right
+ 3. Select the conda environment you created earlier
+ 4. You should now be able to run the blocks of code
 
 ---
