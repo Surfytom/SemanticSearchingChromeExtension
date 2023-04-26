@@ -1,5 +1,5 @@
 # Dissertation
-I will be using visual studio code as the default IDE for all setups. Please translate steps to relevant methods when using alternative IDE's.
+I will be using visual studio code as a IDE for all setups. Please translate steps to relevant methods when using alternative IDE's.
 
 Setups for all sections of the repository assume you have already cloned the whole repository onto your local machine.
 
@@ -7,13 +7,14 @@ Table of Contents:
  - [Chrome Extension](#chromeextension)
  - [Node Js Server](#nodejsserver)
  - [Weaviate Database using Docker](#weaviate)
+ - [IPYNBFiles+PythonServer Files](#otherfiles)
 ---
 ### Chrome Extension <a name="chromeextension"></a>
 
 Before attempting this setup make sure you these dependencies installed on your system:
 
 - Chrome
-- Node Js
+- Node Js (I used version 16.16.0 for this project)
 
 **Setup**
 
@@ -34,7 +35,7 @@ This extension was bootstrapped with [Chrome Extension CLI](https://github.com/d
 
 Before attempting this setup make sure you these dependencies installed on your system:
 
-- Node Js
+- [Node Js](https://nodejs.org/en) (I used version 16.16.0 for this project)
 
 **Setup**
 
@@ -47,11 +48,11 @@ Before attempting this setup make sure you these dependencies installed on your 
 ---
 ### Weaviate Database using Docker <a name="weaviate"></a>
 
-I recommend >8GB of RAM for this setup process. This is due to the docker images and the embedding model take up 4 - 6GB of RAM. From my experience the RAM usage never exceeds 8GB's.
+I recommend >10GB of RAM for this setup process. This is due to the docker images and the embedding model take up 6 - 10GB of RAM. From my experience the RAM usage never exceeds 10GB's.
 
 Before attempting this setup make sure you these dependencies installed on your system:
 
-- Docker desktop application
+- [Docker desktop application](https://docs.docker.com/desktop/install/windows-install/)
 
 **Setup**
 
@@ -65,5 +66,34 @@ Before attempting this setup make sure you these dependencies installed on your 
  8. Once the volume has been built you will be able to see it by clicking the **"Volumes"** section on the left menu
  9. Once the volume has build go to the repository and open an integrated terminal using the docker directory by right clicking the **"DatabaseDockerFolder"** folder and clicking **"open in integrated terminal"**
  11. Type `docker compose up` in the terminal to build the images for Docker to use to build the containers that will run the database. This will take around 10 minutes depending on your computer as the embedding model needs to be initialized.
+---
+### IPYNBFiles+PythonServer Files <a name="otherfiles"></a>
+All other files use python. They consist of the dataset manipulation code. The database insertion code as well as the initial python implementation of the web socket server.
+
+All of these files use the same conda enviroment which is stored within the **" IPYNBFiles+PythonServer"** folder.
+
+Before attempting this setup make sure you these dependencies installed on your system:
+
+- [MiniConda](https://docs.conda.io/en/latest/miniconda.html#)
+
+**Setup**
+
+ 1. Open up the **Anaconda prompt** terminal
+ 2. Type `conda env create -n ENVNAME --file PATHTOFILE/condaenv.yml` into the terminal making sure the full path file is correct and specifying a environment name
+ 3. Once this is installed we can open visual studio code and open the extensions menu
+ 4. Typing `ms-python.python` into the search bar will return the python extension. Install this extension and restart visual studio code if required
+
+**For .py Files**
+
+ 1. There should be interpreter options in the bottom right of visual studio code when a python file is open
+ 2. The option we want should be labelled as **"Select Interpreter"** or have a similar syntax to `3.10.9 ('enviroment': conda)`
+ 3. Click this option and select the conda environment you created earlier
+ 4. Once selected click the down arrow button next to the run code button in the top right and select **"Run Python File"** (this only needs to be clicked once then it is default)
+
+**For .ipynb Files**
+
+ 1. Open the file and click **"Select Kernel"** in the top right
+ 2. Select the conda environment you created earlier
+ 3. You should now be able to run the blocks of code
 
 ---
