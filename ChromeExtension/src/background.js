@@ -15,6 +15,11 @@ chrome.runtime.onInstalled.addListener(() => {
   // Connect to backend server to fetch db data
   connection = new WebSocket("ws://localhost:3000/")
 
+  // If the socket connection errors console log with error message
+  connection.onerror = (event) => {
+    console.log("Socket Error. Check server is running on correct port and try again by refreshing the extension.")
+  }
+
   // Add event listener to run when messages are received from the server
   connection.addEventListener("message", (event) => {
 
