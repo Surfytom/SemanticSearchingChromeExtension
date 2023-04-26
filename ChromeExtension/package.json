@@ -1,7 +1,7 @@
 {
-  "name": "testchromeextension",
+  "name": "dissertationchromeextension",
   "version": "0.1.0",
-  "description": "My Chrome Extension",
+  "description": "This is the chrome extension build for my disseration deliverable",
   "private": true,
   "scripts": {
     "watch": "webpack --mode=development --watch --config config/webpack.config.js",
