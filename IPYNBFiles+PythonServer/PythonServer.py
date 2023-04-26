@@ -1,3 +1,5 @@
+# This server was implemeted then replced by the node js server in the /server directory
+
 from websocket_server import WebsocketServer
 import json
 import weaviate
