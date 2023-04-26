@@ -1,5 +1,5 @@
 # Dissertation
-I will be using visual studio code as a IDE for all setups. Please translate steps to relevant methods when using alternative IDE's.
+I will be using visual studio code as the default IDE for all setups. Please translate steps to relevant methods when using alternative IDE's.
 
 Setups for all sections of the repository assume you have already cloned the whole repository onto your local machine.
 
