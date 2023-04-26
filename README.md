@@ -92,8 +92,9 @@ Before attempting this setup make sure you these dependencies installed on your 
 
 **For .ipynb Files**
 
- 1. Open the file and click **"Select Kernel"** in the top right
- 2. Select the conda environment you created earlier
- 3. You should now be able to run the blocks of code
+ 1. Install the Jupyter notebook extension using this extension code `ms-toolsai.jupyter`
+ 2. Once installed open a file and click **"Select Kernel"** in the top right
+ 3. Select the conda environment you created earlier
+ 4. You should now be able to run the blocks of code
 
 ---
