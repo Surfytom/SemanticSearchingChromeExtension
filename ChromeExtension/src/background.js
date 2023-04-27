@@ -15,6 +15,12 @@ chrome.runtime.onInstalled.addListener(() => {
   // Connect to backend server to fetch db data
   connection = new WebSocket("ws://localhost:3000/")
 
+  // Remove commented code to delete locally saved variables to show that the chrome extension can check for variables and set defaults if none are found
+  /*
+  chrome.storage.sync.remove(["amount", "title"]).then((e) => {
+    console.log("variables removed from storage!")
+  })*/
+
   // If the socket connection errors console log with error message
   connection.onerror = (event) => {
     console.log("Socket Error. Check server is running on correct port and try again by refreshing the extension.")
