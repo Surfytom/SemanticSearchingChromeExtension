@@ -91,7 +91,7 @@ chrome.runtime.onInstalled.addListener(() => {
             let sessionTitle = bookmarkParent.children[i].children[j].title
             let sessionNum = sessionTitle[(sessionTitle.length-1)]
 
-            if(sessionID < sessionNum){
+            if(sessionID <= sessionNum){
               // Assign sessionID to one higher than the highest session found
               sessionID = (parseInt(sessionNum) + 1)
             }
