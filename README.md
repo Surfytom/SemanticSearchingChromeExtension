@@ -2,6 +2,8 @@
 
 This repository contains my undergraduate dissertation project. It is a chrome extension that allows a user to highlight some text on a webpage and recieve related research papers based on that text. It uses a vector based database ([Weaviate](https://weaviate.io/)). This database generates vectors to store in itself by running text through an embedding model (the encoder half of a tranformer model) then storing the resulting vector. This database can then be queried by searching the vector space with an input vector to comapare with.
 
+[Dissertation PDF](https://github.com/Surfytom/SemanticSearchingChromeExtension/blob/master/Dissertation.pdf) is my dissertation paper about this project.
+
 ---
 I will be using visual studio code as a IDE for all setups. Please translate steps to relevant methods when using alternative IDE's.
 
